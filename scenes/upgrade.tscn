@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cuotywv2hkrul" path="res://assets/images/knight.png" id="1_8kav1"]
 [ext_resource type="Script" uid="uid://djvv5qomh6gny" path="res://scripts/upgrate.gd" id="1_nscig"]
 [ext_resource type="LabelSettings" uid="uid://cm76igu117yxn" path="res://assets/fonts/label_settings.tres" id="3_g1npk"]
+[ext_resource type="AudioStream" uid="uid://d11em88j3mg8o" path="res://assets/levelcompletesplash.mp3" id="4_346kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kav1"]
 size = Vector2(16, 16)
@@ -32,6 +33,9 @@ texture = ExtResource("1_8kav1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251533576]
 shape = SubResource("RectangleShape2D_8kav1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=388759953]
+stream = ExtResource("4_346kr")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

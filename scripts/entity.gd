@@ -75,8 +75,8 @@ func _physics_process(delta: float) -> void:
 			navigation_agent_2d.set_target_position(target.global_position)
 	
 	if speed > 0 and target:
-		entity.rotation = sin(Engine.get_physics_frames() * 0.15) * 0.1
-		entity.position.y = sin(Engine.get_physics_frames() * 0.3)
+		entity.rotation = sin(Engine.get_physics_frames() * 0.15) * 0.15
+		entity.position.y = sin(Engine.get_physics_frames() * 0.3) * 2.0
 		entity.scale = Vector2.ONE
 		
 		if global_position > target.global_position:
