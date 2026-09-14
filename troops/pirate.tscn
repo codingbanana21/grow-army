@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://784cjfwcfje5"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_bv22n"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_eqkyg"]
+[ext_resource type="Texture2D" uid="uid://bgd3aqjbx7w5b" path="res://assets/images/pirate.png" id="3_bgfwu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7no2x"]
+resource_local_to_scene = true
+shader = ExtResource("2_eqkyg")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Pirate" unique_id=2133116557 instance=ExtResource("1_bv22n")]
+group_number = 1
+max_hp = 300.0
+damage = 40.0
+attack_speed = 0.5
+attck_range = 64.0
+knockback = 16
+self_healing = 30.0
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_7no2x")
+texture = ExtResource("3_bgfwu")

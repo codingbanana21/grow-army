@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccs0jaiaipv1l"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_p11lx"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_hou2g"]
+[ext_resource type="Texture2D" uid="uid://dhihl4oqk8oxc" path="res://assets/images/destroyer.png" id="3_uaeej"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p11lx"]
+resource_local_to_scene = true
+shader = ExtResource("2_hou2g")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="BossDestroyer" unique_id=2133116557 instance=ExtResource("1_p11lx")]
+scale = Vector2(2, 2)
+max_hp = 1500.0
+damage = 500.0
+attack_speed = 3.0
+attack_area = 16
+knockback = 512
+gold = 500
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_p11lx")
+texture = ExtResource("3_uaeej")

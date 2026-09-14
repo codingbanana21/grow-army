@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bygqx6j5d6qdq"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_vwgwt"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_d5vsm"]
+[ext_resource type="Texture2D" uid="uid://dh364fjmamq74" path="res://assets/images/castle.png" id="2_vwgwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5vsm"]
+resource_local_to_scene = true
+shader = ExtResource("2_d5vsm")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Castle" unique_id=2133116557 instance=ExtResource("1_vwgwt")]
+scale = Vector2(2, 2)
+group_number = 1
+max_hp = 300.0
+damage = 35.0
+speed = 0.0
+attack_speed = 0.35
+attck_range = inf
+castle = true
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_d5vsm")
+texture = ExtResource("2_vwgwt")
+
+[node name="HpBar" parent="." index="4" unique_id=355795428]
+offset_top = -17.0
+offset_bottom = -1.0

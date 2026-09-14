@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://nr202hpkb2xk"]
+
+[ext_resource type="Script" uid="uid://tbcwyasndmtk" path="res://scripts/entity.gd" id="1_51v4c"]
+[ext_resource type="Texture2D" uid="uid://cuotywv2hkrul" path="res://assets/images/knight.png" id="2_51v4c"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_ygnst"]
+[ext_resource type="Texture2D" uid="uid://80ku7v6di7w0" path="res://assets/images/hp_bar2.png" id="3_ygnst"]
+[ext_resource type="Texture2D" uid="uid://y40cu0b2lobn" path="res://assets/images/hp_bar.png" id="4_afumw"]
+[ext_resource type="LabelSettings" uid="uid://cm76igu117yxn" path="res://assets/fonts/label_settings.tres" id="5_nf3df"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
+radius = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ra3w"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ygnst"]
+resource_local_to_scene = true
+shader = ExtResource("2_ygnst")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[sub_resource type="Animation" id="Animation_ygnst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HitText:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_afumw"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HitText:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wd4e3"]
+_data = {
+&"RESET": SubResource("Animation_ygnst"),
+&"hit": SubResource("Animation_afumw")
+}
+
+[node name="Entity" type="CharacterBody2D" unique_id=2133116557]
+script = ExtResource("1_51v4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1127058943]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_5uy6h")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1588897011]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1080267494]
+shape = SubResource("CapsuleShape2D_4ra3w")
+debug_color = Color(0.9780788, 0.14955592, 0, 0.41960785)
+
+[node name="Entity" type="Sprite2D" parent="." unique_id=431306236]
+material = SubResource("ShaderMaterial_ygnst")
+texture = ExtResource("2_51v4c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Entity" unique_id=1128008830]
+libraries/ = SubResource("AnimationLibrary_wd4e3")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1860989420]
+z_index = -1
+color = Color(0, 0, 0, 0.29411766)
+polygon = PackedVector2Array(-6, 6, -8, 8, -6, 10, 5, 10, 7, 8, 6, 6)
+
+[node name="HpBar" type="TextureProgressBar" parent="." unique_id=355795428]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = -2.0
+value = 100.0
+texture_under = ExtResource("3_ygnst")
+texture_progress = ExtResource("4_afumw")
+
+[node name="HpText" type="Label" parent="." unique_id=1592331160]
+offset_left = -3.0
+offset_top = -12.0
+offset_right = 36.999996
+offset_bottom = 10.333334
+scale = Vector2(0.15, 0.15)
+label_settings = ExtResource("5_nf3df")
+horizontal_alignment = 1
+
+[node name="HitText" type="Label" parent="." unique_id=1416548465]
+visible = false
+z_index = 1
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 25.0
+offset_bottom = 20.333334
+scale = Vector2(0.2, 0.2)
+label_settings = ExtResource("5_nf3df")
+horizontal_alignment = 1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1597037245]
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=247410694]
+one_shot = true

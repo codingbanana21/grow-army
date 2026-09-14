@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cesdrv5j80uqx"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_glfi2"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_3sbv7"]
+[ext_resource type="Texture2D" uid="uid://ba4wos53gs1gn" path="res://assets/images/giant.png" id="2_sx7hc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sbv7"]
+resource_local_to_scene = true
+shader = ExtResource("2_3sbv7")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Giant" unique_id=2133116557 instance=ExtResource("1_glfi2")]
+max_hp = 230.0
+speed = 250.0
+attack_speed = 1.5
+knockback = 32
+gold = 8
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_3sbv7")
+texture = ExtResource("2_sx7hc")

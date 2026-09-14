@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://djtidjo34sb1w"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_vhfj5"]
+[ext_resource type="Texture2D" uid="uid://d2spsybxin4ub" path="res://assets/images/dart_shooter.png" id="2_b24wc"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_v57uw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b24wc"]
+resource_local_to_scene = true
+shader = ExtResource("2_v57uw")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="DartShooterBoss" unique_id=2133116557 instance=ExtResource("1_vhfj5")]
+scale = Vector2(1.5, 1.5)
+max_hp = 300.0
+damage = 70.0
+attack_speed = 0.15
+attck_range = 48.0
+knockback = 64
+self_healing = 30.0
+gold = 500
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_b24wc")
+texture = ExtResource("2_b24wc")

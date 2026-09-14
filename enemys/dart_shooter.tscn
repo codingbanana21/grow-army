@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dnunyo8td4l0w"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_8up12"]
+[ext_resource type="Texture2D" uid="uid://d2spsybxin4ub" path="res://assets/images/dart_shooter.png" id="2_q0fk6"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_r6i77"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6i77"]
+resource_local_to_scene = true
+shader = ExtResource("2_r6i77")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="DartShooter" unique_id=2133116557 instance=ExtResource("1_8up12")]
+max_hp = 35.0
+damage = 8.0
+speed = 400.0
+attack_speed = 0.35
+attck_range = 48.0
+knockback = 2
+gold = 4
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_r6i77")
+texture = ExtResource("2_q0fk6")

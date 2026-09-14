@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://xm656bxypk7t"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_qsn0p"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_ha5yi"]
+[ext_resource type="Texture2D" uid="uid://cug5ytukpjf77" path="res://assets/images/zombie_king.png" id="3_ha5yi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ha5yi"]
+resource_local_to_scene = true
+shader = ExtResource("2_ha5yi")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Zombie_boss" unique_id=2133116557 instance=ExtResource("1_qsn0p")]
+scale = Vector2(2, 2)
+max_hp = 1000.0
+damage = 250.0
+speed = 200.0
+attack_speed = 2.0
+knockback = 64
+gold = 100
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_ha5yi")
+texture = ExtResource("3_ha5yi")

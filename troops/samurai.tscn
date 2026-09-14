@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3n8p70msu8r8"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_bvm2e"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_b15o7"]
+[ext_resource type="Texture2D" uid="uid://5y7msxli6rds" path="res://assets/images/samurai.png" id="3_bvm2e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6mm5"]
+resource_local_to_scene = true
+shader = ExtResource("2_b15o7")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Samurai" unique_id=2133116557 instance=ExtResource("1_bvm2e")]
+group_number = 1
+max_hp = 400.0
+speed = 500.0
+attack_speed = 0.35
+attack_area = 12
+knockback = 32
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_q6mm5")
+texture = ExtResource("3_bvm2e")

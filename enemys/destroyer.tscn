@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cyu3bvnwtshho"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_n7r6w"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_jdt26"]
+[ext_resource type="Texture2D" uid="uid://dhihl4oqk8oxc" path="res://assets/images/destroyer.png" id="3_saru0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7r6w"]
+resource_local_to_scene = true
+shader = ExtResource("2_jdt26")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Destroyer" unique_id=2133116557 instance=ExtResource("1_n7r6w")]
+max_hp = 150.0
+damage = 60.0
+speed = 500.0
+attack_speed = 2.0
+attack_area = 8
+knockback = 128
+gold = 10
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_n7r6w")
+texture = ExtResource("3_saru0")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjdbcr7ccimmx"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_httt1"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_3v4ok"]
+[ext_resource type="Texture2D" uid="uid://tnjjkot7glms" path="res://assets/images/zombie.png" id="2_xepks"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v4ok"]
+resource_local_to_scene = true
+shader = ExtResource("2_3v4ok")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="Zombie" unique_id=2133116557 instance=ExtResource("1_httt1")]
+max_hp = 60.0
+gold = 2
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_3v4ok")
+texture = ExtResource("2_xepks")

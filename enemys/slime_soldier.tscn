@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d3a3scqow1dne"]
+
+[ext_resource type="PackedScene" uid="uid://nr202hpkb2xk" path="res://scenes/entity.tscn" id="1_vj60k"]
+[ext_resource type="Shader" uid="uid://bunyfihg5lxfp" path="res://assets/hit_flash.gdshader" id="2_abyva"]
+[ext_resource type="Texture2D" uid="uid://bwnquixbmgacm" path="res://assets/images/slime_soldier.png" id="3_vj60k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyogy"]
+resource_local_to_scene = true
+shader = ExtResource("2_abyva")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[node name="SlimeSoldier" unique_id=2133116557 instance=ExtResource("1_vj60k")]
+max_hp = 90.0
+damage = 15.0
+attack_speed = 0.5
+attack_area = 16
+self_healing = 30.0
+gold = 3
+
+[node name="Entity" parent="." index="2" unique_id=431306236]
+material = SubResource("ShaderMaterial_cyogy")
+texture = ExtResource("3_vj60k")

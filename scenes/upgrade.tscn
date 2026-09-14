@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b7boc74g3e1m4"]
+
+[ext_resource type="Texture2D" uid="uid://cuotywv2hkrul" path="res://assets/images/knight.png" id="1_8kav1"]
+[ext_resource type="Script" uid="uid://djvv5qomh6gny" path="res://scripts/upgrate.gd" id="1_nscig"]
+[ext_resource type="LabelSettings" uid="uid://cm76igu117yxn" path="res://assets/fonts/label_settings.tres" id="3_g1npk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kav1"]
+size = Vector2(16, 16)
+
+[node name="Upgrade" type="Area2D" unique_id=1707888204]
+script = ExtResource("1_nscig")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1758861712]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="InfoLabel" type="Label" parent="." unique_id=2093614581]
+unique_name_in_owner = true
+z_index = 1
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.35, 0.35)
+label_settings = ExtResource("3_g1npk")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=13279904]
+texture = ExtResource("1_8kav1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251533576]
+shape = SubResource("RectangleShape2D_8kav1")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
