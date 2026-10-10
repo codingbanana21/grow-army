@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	wave_label.text = "Wave " + str(Globals.wave)
 	
 	if Input.is_action_pressed("fast_speed"):
-		Engine.time_scale = 3.0
+		Engine.time_scale = 2.0
 	else:
 		Engine.time_scale = 1.0
 	

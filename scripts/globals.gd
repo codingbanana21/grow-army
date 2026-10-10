@@ -4,7 +4,7 @@ const SAVE_PATH = "user://Save.tres"
 var save_data: SaveDataResource = SaveDataResource.new()
 
 enum {CASTLE, SUPER_KNIGHT, FRIENDLY_GIANT, SAMURAI, WIZARD, PIRATE, GOLD_MULT, DAMAGE_MULT, HP_MULT, PRESTIGE}
-const GAME_VERSION: float = 1.7
+const GAME_VERSION: float = 1.8
 
 var save_version: float
 var gold: int = 0
@@ -52,18 +52,17 @@ func load_game():
 		
 		if save_version:
 			if save_version < GAME_VERSION:
-				print("out of date save")
+				print("Out of date save")
 				save_version = GAME_VERSION
 			elif save_version > GAME_VERSION:
-				push_error("to new save")
+				push_error("Save is to new is use")
 				return
 		else:
-			push_warning("no save version")
+			push_warning("No save version")
 			save_version = GAME_VERSION
 		
 		gold = save_data.gold
 		wave = save_data.wave
-		#player_levels = save_data.player_levels
 		player_levels.merge(save_data.player_levels, true)
 	else:
 		save_game()

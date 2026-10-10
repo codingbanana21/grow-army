@@ -24,13 +24,14 @@ func _process(delta: float) -> void:
 	
 	if show_info:
 		info_label.show()
-		if sprite_2d.scale.x <= 1.5:
-			sprite_2d.scale *= 1.1
+		sprite_2d.scale *= 1.1
 		info_label.global_position = get_global_mouse_position()
 	else:
-		if sprite_2d.scale.x >= 1.0:
-			sprite_2d.scale *= 0.9
+		sprite_2d.scale *= 0.9
 		info_label.hide()
+	
+	sprite_2d.scale.x = clamp(sprite_2d.scale.x, 1, 1.5)
+	sprite_2d.scale.y = clamp(sprite_2d.scale.y, 1, 1.5)
 	
 	if Globals.player_levels[upgrade_type] == 0:
 		info_label.text = "%s \nUnlock %d Gold \n%s"% [update_name, unlock_cost, extra_text]
